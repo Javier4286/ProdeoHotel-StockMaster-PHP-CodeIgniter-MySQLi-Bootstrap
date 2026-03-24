@@ -1,0 +1,106 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.search-container-dynamic {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+}
+
+.search-container-dynamic .form-control {
+  border: 2px solid #003087;
+  border-radius: 12px;
+  padding: 10px 45px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  height: 45px;
+}
+
+.search-container-dynamic .form-control:focus {
+  box-shadow: 0 0 15px rgba(249, 214, 17, 0.4);
+  border-color: #f9d611;
+  outline: none;
+}
+
+.search-container-dynamic .search-icon-inside {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #003087;
+  font-size: 1.1rem;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.search-container-dynamic .clear-search-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #cc0000;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 6;
+  padding: 0;
+  line-height: 1;
+}
+
+.btn-prodeo-fixed {
+  background-color: #f9d611;
+  color: #003087;
+  font-weight: 800;
+  border: none;
+  border-radius: 12px;
+  padding: 0 20px;
+  height: 45px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-prodeo-fixed:hover {
+  background-color: #e5c410;
+  color: #003087;
+  transform: translateY(-2px);
+}
+
+.pagination-wrapper ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  gap: 10px;
+}
+
+.pagination-wrapper ul li a,
+.pagination-wrapper ul li span {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #003087;
+  color: #003087;
+  text-decoration: none;
+  font-weight: 600;
+  background: white;
+  transition: 0.3s;
+}
+
+.pagination-wrapper ul li.active a,
+.pagination-wrapper ul li.active span {
+  background-color: #003087;
+  color: #f9d611;
+}
+
+.pagination-wrapper ul li a:hover {
+  background-color: #f9d611;
+  color: #003087;
+}

@@ -1,0 +1,122 @@
+.navbar .container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.navbar-brand {
+  margin-right: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+main.container-scaled {
+  transform: none !important;
+  min-height: calc(100vh - 180px);
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+}
+
+.login-card {
+  width: 500px;
+  max-width: 90%;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: white;
+  margin: 0 auto !important;
+}
+
+.login-header {
+  background-color: var(--prodeo-blue);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 4px solid var(--prodeo-yellow);
+}
+
+.login-header img {
+  height: 60px;
+  margin-bottom: 5px;
+}
+
+.login-header h4 {
+  color: white;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.login-body {
+  padding: 30px 50px;
+}
+
+.form-label {
+  color: var(--prodeo-blue);
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+}
+
+.input-group {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f8f9fa !important;
+}
+
+.input-group-text {
+  background-color: #f8f9fa !important;
+  border: 1px solid #e0e0e0 !important;
+  border-right: none !important;
+  color: var(--prodeo-blue) !important;
+  padding-left: 15px !important;
+  padding-right: 10px !important;
+  margin: 0 !important;
+}
+
+.form-control {
+  background-color: #f8f9fa !important;
+  border: 1px solid #e0e0e0 !important;
+  border-left: none !important;
+  padding: 10px 10px 10px 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+.form-control:focus {
+  background-color: #f8f9fa !important;
+  border-color: #e0e0e0 !important;
+  outline: none !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #f8f9fa inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.btn-login {
+  background-color: var(--prodeo-blue);
+  color: white;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.btn-login:hover {
+  background-color: #002366;
+  color: var(--prodeo-yellow);
+}

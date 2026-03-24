@@ -1,0 +1,140 @@
+.prodeo-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.user-status-badge {
+  background-color: #003087;
+  color: #f9d611;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.stat-card-base {
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.stat-card-base:hover {
+  transform: translateY(-5px);
+}
+
+.btn-quick-action {
+  border-radius: 10px;
+  font-weight: 700;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  min-width: 120px;
+}
+
+.btn-action-primary {
+  background-color: #003087;
+  color: #f9d611;
+  border: 2px solid #003087;
+}
+
+.btn-action-primary:hover {
+  background-color: #f9d611;
+  color: #003087;
+  border-color: #f9d611;
+}
+
+.btn-action-outline {
+  background-color: transparent;
+  color: #003087;
+  border: 2px solid #003087;
+}
+
+.btn-action-outline:hover {
+  background-color: #f9d611;
+  color: #003087;
+  border-color: #f9d611;
+}
+
+.btn-view-all {
+  background-color: white;
+  color: #003087;
+  border: 1px solid #003087;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.btn-view-all:hover {
+  background-color: #f9d611;
+  color: #003087;
+}
+
+.sidebar-info-card {
+  background-color: #003087;
+  border: none;
+  border-radius: 15px;
+  color: white;
+}
+
+.status-text-gold {
+  color: #f9d611;
+}
+
+.status-indicator-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.status-indicator-item {
+  font-size: 0.85rem;
+  color: #f9d611;
+  font-weight: 600;
+  padding: 8px 0;
+  text-align: center;
+}
+
+.table-prodeo-custom {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table-prodeo-custom thead tr th {
+  background-color: #003087 !important;
+  color: #f9d611 !important;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  padding: 12px;
+  border: none;
+}
+
+.table-prodeo-custom tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table-prodeo-custom tbody tr:hover {
+  background-color: rgba(0, 48, 135, 0.05) !important;
+  cursor: default !important;
+}
+
+.prodeo-card-header {
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  border-radius: 15px 15px 0 0;
+}
+
+.mt-table-adjust {
+  margin-top: -10px;
+}
+
+.empty-activity-state {
+  padding: 3rem;
+  text-align: center;
+}

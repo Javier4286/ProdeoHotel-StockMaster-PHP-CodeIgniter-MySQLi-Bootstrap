@@ -1,0 +1,63 @@
+.prodeo-card {
+  margin-top: 2rem;
+  border: none;
+}
+
+.prodeo-card-header {
+  background-color: #003087;
+  color: #f9d611;
+  padding: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-radius: 15px 15px 0 0;
+  text-align: center;
+}
+
+.form-control {
+  border: 2px solid #dee2e6;
+  border-radius: 10px;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #003087;
+  box-shadow: 0 0 10px rgba(0, 48, 135, 0.1);
+}
+
+.form-check-input:checked {
+  background-color: #003087;
+  border-color: #003087;
+}
+
+.btn-save {
+  background-color: #f9d611;
+  color: #003087;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-save:hover {
+  background-color: #e5c410;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cancel-custom {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  font-weight: 700;
+  border: 2px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel-custom:hover {
+  background-color: #e2e6ea;
+  color: #343a40;
+}
+
+.text-prodeo {
+  color: #003087;
+}
