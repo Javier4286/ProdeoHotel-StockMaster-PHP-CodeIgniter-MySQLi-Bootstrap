@@ -1,8 +1,7 @@
-```markdown
 # StockMaster - Prodeo Hotel + Lounge
 
 <p align="center">
-  <img src="./public/assets/img/prodeoHotel_logo.png" width="300" alt="Prodeo Hotel Logo">
+  <img src="public\assets\img\prodeoHotel_logo.png" width="300" alt="Prodeo Hotel Logo">
 </p>
 
 ## 🚀 Project Overview
@@ -15,17 +14,17 @@
 
 ### Backend & Logic
 
-* **PHP (OOP)**: Core server-side logic using Object-Oriented Programming.
-* **CodeIgniter 3**: Professional MVC framework for structured development.
-* **MySQLi**: Relational database management with optimized indexing.
-* **Bcrypt**: Secure password hashing for user authentication.
+- **PHP (OOP)**: Core server-side logic using Object-Oriented Programming.
+- **CodeIgniter 3**: Professional MVC framework for structured development.
+- **MySQLi**: Relational database management with optimized indexing.
+- **Bcrypt**: Secure password hashing for user authentication.
 
 ### Frontend & UX
 
-* **Bootstrap 5**: Responsive design and professional UI components.
-* **AJAX / JavaScript**: Asynchronous stock management and dynamic row deletion.
-* **SweetAlert2**: Elegant and interactive modal alerts for system notifications.
-* **FontAwesome 6**: Comprehensive icon set for improved visual navigation.
+- **Bootstrap 5**: Responsive design and professional UI components.
+- **AJAX / JavaScript**: Asynchronous stock management and dynamic row deletion.
+- **SweetAlert2**: Elegant and interactive modal alerts for system notifications.
+- **FontAwesome 6**: Comprehensive icon set for improved visual navigation.
 
 ---
 
@@ -33,8 +32,8 @@
 
 ### 1. Database Configuration
 
-* Ensure you have **MySQL** installed and running (via XAMPP).
-* Execute the SQL script located at `/database/ProdeoHotel_StockMaster_Schema.sql` to create the `prodeo` database, all necessary tables, and seed initial data.
+- Ensure you have **MySQL** installed and running (via XAMPP).
+- Execute the SQL script located at `/database/ProdeoHotel_StockMaster_Schema.sql` to create the `prodeo` database, all necessary tables, and seed initial data.
 
 ### 2. Local Server Setup (Apache)
 
@@ -42,10 +41,12 @@ To run this project correctly, you must point your local server to the `/public`
 
 1. Open your Apache configuration file (`httpd.conf`) from XAMPP.
 2. Update the `DocumentRoot` and `<Directory>` to point to your local project path:
-   ```apache
-   DocumentRoot "[YOUR_LOCAL_PATH]/public"
-   <Directory "[YOUR_LOCAL_PATH]/public">
-   ```
+
+```apache
+DocumentRoot "[YOUR_LOCAL_PATH]/public"
+<Directory "[YOUR_LOCAL_PATH]/public">
+```
+
 3. (Optional) Change `Listen 80` to `Listen 8080` if you have port conflicts.
 4. Restart Apache and access the app at: `http://localhost:8080/` (or your configured port).
 
@@ -55,10 +56,8 @@ To run this project correctly, you must point your local server to the `/public`
 
 To access the administrative features and manage the inventory, use the following default account:
 
-* **Email:** `admin@prodeohotel.com`
-* **Password:** `admin123`
-
----
+- **Email:** `admin@prodeohotel.com`
+- **Password:** `admin123`
 
 ---
 
@@ -70,23 +69,23 @@ To access the administrative features and manage the inventory, use the followin
 
 ### Backend
 
-* **PHP (POO)**: Lógica principal del servidor mediante Programación Orientada a Objetos.
-* **CodeIgniter 3**: Framework MVC profesional para un desarrollo estructurado.
-* **MySQLi**: Gestión de base de datos relacional con indexación optimizada.
-* **Bcrypt**: Encriptación de contraseñas para seguridad.
+- **PHP (POO)**: Lógica principal del servidor mediante Programación Orientada a Objetos.
+- **CodeIgniter 3**: Framework MVC profesional para un desarrollo estructurado.
+- **MySQLi**: Gestión de base de datos relacional con indexación optimizada.
+- **Bcrypt**: Encriptación de contraseñas para seguridad.
 
 ### Frontend
 
-* **Bootstrap 5**: Diseño responsivo y componentes de interfaz profesional.
-* **AJAX / JavaScript**: Gestión de stock asíncrona y eliminación dinámica de filas.
-* **SweetAlert2**: Alertas interactivas para notificaciones del sistema.
-* **FontAwesome 6**: Set de iconos para una mejor navegación visual.
+- **Bootstrap 5**: Diseño responsivo y componentes de interfaz profesional.
+- **AJAX / JavaScript**: Gestión de stock asíncrona y eliminación dinámica de filas.
+- **SweetAlert2**: Alertas interactivas para notificaciones del sistema.
+- **FontAwesome 6**: Set de iconos para una mejor navegación visual.
 
 ## ⚙️ Instalación y Configuración
 
 ### 1. Configuración de la Base de Datos
 
-* Ejecute el script SQL ubicado en `/database/ProdeoHotel_StockMaster_Schema.sql` para crear el esquema, las tablas y los datos iniciales.
+- Ejecute el script SQL ubicado en `/database/ProdeoHotel_StockMaster_Schema.sql` para crear el esquema, las tablas y los datos iniciales.
 
 ### 2. Configuración del Servidor Local (Apache)
 
@@ -98,6 +97,5 @@ To access the administrative features and manage the inventory, use the followin
 
 Para probar las funciones de gestión de inventario:
 
-* **Email:** `admin@prodeohotel.com`
-* **Password:** `admin123`
-```
+- **Email:** `admin@prodeohotel.com`
+- **Password:** `admin123`
