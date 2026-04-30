@@ -194,20 +194,22 @@ class Database extends Config
     {
         parent::__construct();
 
-        // 1. Cargamos los datos de las variables de entorno de Render
         $hostname = env('database.default.hostname', 'localhost');
         $database = env('database.default.database', 'prodeo');
         $username = env('database.default.username', 'root');
         $password = env('database.default.password', '');
         $port     = (int) env('database.default.port', 4000);
 
-        // 2. Si NO estamos en localhost, forzamos conexión TCP pura
+        // Si estamos en Render (hostname externo)
         if ($hostname !== 'localhost' && $hostname !== '127.0.0.1') {
-            // Vaciamos el hostname para que NO intente usar sockets locales
-            $this->default['hostname'] = '';
+            // FORZAMOS EL USO DE RED: 
+            // Al poner el puerto en el hostname o usar el DSN correcto, evitamos el socket local.
+            $this->default['hostname'] = $hostname;
             $this->default['DSN']      = "mysql:host={$hostname};port={$port};dbname={$database};charset=utf8mb4";
+
+            // IMPORTANTE: Algunos entornos necesitan que 'hostname' esté vacío si se usa DSN
+            // Si el error persiste, probaremos vaciando hostname después.
         } else {
-            // Configuración normal para XAMPP/Local
             $this->default['hostname'] = $hostname;
             $this->default['DSN']      = "";
         }
@@ -217,8 +219,7 @@ class Database extends Config
         $this->default['password'] = $password;
         $this->default['port']     = $port;
 
-        if (ENVIRONMENT === 'testing') {
-            $this->defaultGroup = 'tests';
-        }
+        // Evita que PHP busque el archivo .sock del sistema
+        $this->default['DBDebug']  = (ENVIRONMENT !== 'production');
     }
 }
