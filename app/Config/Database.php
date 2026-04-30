@@ -194,19 +194,28 @@ class Database extends Config
     {
         parent::__construct();
 
-        // Leemos las variables de entorno de Render
-        $this->default['hostname'] = env('database.default.hostname', 'localhost');
-        $this->default['database'] = env('database.default.database', 'prodeo');
-        $this->default['username'] = env('database.default.username', 'root');
-        $this->default['password'] = env('database.default.password', '');
-        $this->default['port']     = (int) env('database.default.port', 4000);
+        // 1. Cargamos los datos de las variables de entorno de Render
+        $hostname = env('database.default.hostname', 'localhost');
+        $database = env('database.default.database', 'prodeo');
+        $username = env('database.default.username', 'root');
+        $password = env('database.default.password', '');
+        $port     = (int) env('database.default.port', 4000);
 
-        // FORZAR TCP: Si el hostname no es local, usamos DSN para evitar el error de "No such file"
-        if ($this->default['hostname'] !== 'localhost' && $this->default['hostname'] !== '127.0.0.1') {
-            $this->default['DSN'] = "mysql:host=" . $this->default['hostname'] . ";port=" . $this->default['port'] . ";dbname=" . $this->default['database'] . ";charset=utf8mb4";
+        // 2. Si NO estamos en localhost, forzamos conexión TCP pura
+        if ($hostname !== 'localhost' && $hostname !== '127.0.0.1') {
+            // Vaciamos el hostname para que NO intente usar sockets locales
+            $this->default['hostname'] = '';
+            $this->default['DSN']      = "mysql:host={$hostname};port={$port};dbname={$database};charset=utf8mb4";
         } else {
-            $this->default['DSN'] = "";
+            // Configuración normal para XAMPP/Local
+            $this->default['hostname'] = $hostname;
+            $this->default['DSN']      = "";
         }
+
+        $this->default['database'] = $database;
+        $this->default['username'] = $username;
+        $this->default['password'] = $password;
+        $this->default['port']     = $port;
 
         if (ENVIRONMENT === 'testing') {
             $this->defaultGroup = 'tests';
