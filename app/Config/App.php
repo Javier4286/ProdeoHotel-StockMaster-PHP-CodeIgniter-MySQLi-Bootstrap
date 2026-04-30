@@ -16,7 +16,21 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'http://localhost:8080/';
+    // public string $baseURL = 'http://localhost:8080/';
+    public string $baseURL;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        // Si existe la variable de entorno que pusimos en Render, usamos la URL de internet
+        if (getenv('CI_ENVIRONMENT') === 'production' || (isset($_SERVER['CI_ENVIRONMENT']) && $_SERVER['CI_ENVIRONMENT'] === 'production')) {
+            $this->baseURL = 'https://prodeohotel-stockmaster-php-codeigniter.onrender.com/';
+        } else {
+            // Si no, estamos en tu PC (localhost)
+            $this->baseURL = 'http://localhost:8080/';
+        }
+    }
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
