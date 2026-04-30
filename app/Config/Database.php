@@ -194,16 +194,19 @@ class Database extends Config
     {
         parent::__construct();
 
-        // Esto lee las variables de entorno de Render
+        // Leemos las variables de entorno de Render
         $this->default['hostname'] = env('database.default.hostname', 'localhost');
         $this->default['database'] = env('database.default.database', 'prodeo');
         $this->default['username'] = env('database.default.username', 'root');
         $this->default['password'] = env('database.default.password', '');
+        $this->default['port']     = (int) env('database.default.port', 4000);
 
-        // CORRECCIÓN AQUÍ: Usamos el puerto de la variable de entorno, o el 4000 por defecto
-        $this->default['port'] = (int) env('database.default.port', 4000);
-
-        $this->default['DSN'] = "mysql:host=" . $this->default['hostname'] . ";port=" . $this->default['port'] . ";dbname=" . $this->default['database'] . ";charset=utf8mb4";
+        // FORZAR TCP: Si el hostname no es local, usamos DSN para evitar el error de "No such file"
+        if ($this->default['hostname'] !== 'localhost' && $this->default['hostname'] !== '127.0.0.1') {
+            $this->default['DSN'] = "mysql:host=" . $this->default['hostname'] . ";port=" . $this->default['port'] . ";dbname=" . $this->default['database'] . ";charset=utf8mb4";
+        } else {
+            $this->default['DSN'] = "";
+        }
 
         if (ENVIRONMENT === 'testing') {
             $this->defaultGroup = 'tests';
