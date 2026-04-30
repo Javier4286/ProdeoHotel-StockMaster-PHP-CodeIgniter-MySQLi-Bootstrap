@@ -203,6 +203,8 @@ class Database extends Config
         // CORRECCIÓN AQUÍ: Usamos el puerto de la variable de entorno, o el 4000 por defecto
         $this->default['port'] = (int) env('database.default.port', 4000);
 
+        $this->default['DSN'] = "mysql:host=" . $this->default['hostname'] . ";port=" . $this->default['port'] . ";dbname=" . $this->default['database'] . ";charset=utf8mb4";
+
         if (ENVIRONMENT === 'testing') {
             $this->defaultGroup = 'tests';
         }
