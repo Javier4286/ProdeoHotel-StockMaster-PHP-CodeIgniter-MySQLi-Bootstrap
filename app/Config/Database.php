@@ -194,32 +194,26 @@ class Database extends Config
     {
         parent::__construct();
 
-        $hostname = env('database.default.hostname', 'localhost');
-        $database = env('database.default.database', 'prodeo');
-        $username = env('database.default.username', 'root');
-        $password = env('database.default.password', '');
-        $port     = (int) env('database.default.port', 4000);
+        $hostname = env('DB_HOST') ?: '127.0.0.1';
+        $database = env('DB_NAME') ?: 'prodeo';
+        $username = env('DB_USER') ?: 'root';
+        $password = env('DB_PASS') ?: '';
+        $port     = (int) (env('DB_PORT') ?: 3306);
 
-        // Si estamos en Render (hostname externo)
-        if ($hostname !== 'localhost' && $hostname !== '127.0.0.1') {
-            // FORZAMOS EL USO DE RED: 
-            // Al poner el puerto en el hostname o usar el DSN correcto, evitamos el socket local.
-            $this->default['hostname'] = $hostname;
-            $this->default['DSN']      = "mysql:host={$hostname};port={$port};dbname={$database};charset=utf8mb4";
+        // 👉 PONERLO ACÁ
+        log_message('error', 'DB HOST: ' . $hostname);
 
-            // IMPORTANTE: Algunos entornos necesitan que 'hostname' esté vacío si se usa DSN
-            // Si el error persiste, probaremos vaciando hostname después.
-        } else {
-            $this->default['hostname'] = $hostname;
-            $this->default['DSN']      = "";
+        // Force TCP (avoid socket)
+        if ($hostname === 'localhost') {
+            $hostname = '127.0.0.1';
         }
 
+        $this->default['hostname'] = $hostname;
         $this->default['database'] = $database;
         $this->default['username'] = $username;
         $this->default['password'] = $password;
         $this->default['port']     = $port;
 
-        // Evita que PHP busque el archivo .sock del sistema
         $this->default['DBDebug']  = (ENVIRONMENT !== 'production');
     }
 }
