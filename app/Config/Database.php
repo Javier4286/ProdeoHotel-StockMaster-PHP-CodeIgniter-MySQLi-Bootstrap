@@ -194,26 +194,29 @@ class Database extends Config
     {
         parent::__construct();
 
+        // Read env vars (Render + local compatible)
         $hostname = env('DB_HOST') ?: '127.0.0.1';
         $database = env('DB_NAME') ?: 'prodeo';
         $username = env('DB_USER') ?: 'root';
         $password = env('DB_PASS') ?: '';
         $port     = (int) (env('DB_PORT') ?: 3306);
 
-        // 👉 PONERLO ACÁ
-        log_message('error', 'DB HOST: ' . $hostname);
-
         // Force TCP (avoid socket)
         if ($hostname === 'localhost') {
             $hostname = '127.0.0.1';
         }
 
+        // Apply config
         $this->default['hostname'] = $hostname;
         $this->default['database'] = $database;
         $this->default['username'] = $username;
         $this->default['password'] = $password;
         $this->default['port']     = $port;
 
-        $this->default['DBDebug']  = (ENVIRONMENT !== 'production');
+        // 🔥 ESTA ES LA CLAVE PARA TIDB
+        $this->default['encrypt'] = true;
+
+        // Disable debug in production
+        $this->default['DBDebug'] = (ENVIRONMENT !== 'production');
     }
 }
