@@ -214,7 +214,10 @@ class Database extends Config
         $this->default['port']     = $port;
 
         // 🔥 ESTA ES LA CLAVE PARA TIDB
-        $this->default['encrypt'] = true;
+        $this->default['encrypt'] = [
+            'ssl_verify' => true,
+            'ssl_ca'     => APPPATH . 'Config/certs/ca.pem',
+        ];
 
         // Disable debug in production
         // $this->default['DBDebug'] = (ENVIRONMENT !== 'production');
