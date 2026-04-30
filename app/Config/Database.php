@@ -30,7 +30,8 @@ class Database extends Config
         'username'     => '',
         'password'     => '',
         'database'     => '',
-        'DBDriver'     => 'MySQLi',
+        // 'DBDriver'     => 'MySQLi',
+        'DBDriver'     => 'PDO',
         'DBPrefix'     => '',
         'pConnect'     => false,
         'DBDebug'      => true,
@@ -217,6 +218,7 @@ class Database extends Config
         $this->default['encrypt'] = true;
 
         // Disable debug in production
-        $this->default['DBDebug'] = (ENVIRONMENT !== 'production');
+        // $this->default['DBDebug'] = (ENVIRONMENT !== 'production');
+        $this->default['DSN'] = "mysql:host={$hostname};port={$port};dbname={$database};charset=utf8mb4";
     }
 }
