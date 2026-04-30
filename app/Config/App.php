@@ -23,11 +23,12 @@ class App extends BaseConfig
     {
         parent::__construct();
 
-        // Si existe la variable de entorno que pusimos en Render, usamos la URL de internet
-        if (getenv('CI_ENVIRONMENT') === 'production' || (isset($_SERVER['CI_ENVIRONMENT']) && $_SERVER['CI_ENVIRONMENT'] === 'production')) {
+        // Detectamos si el host contiene "onrender.com"
+        if (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'onrender.com') !== false) {
+            // Forzamos la URL de producción en Render
             $this->baseURL = 'https://prodeohotel-stockmaster-php-codeigniter.onrender.com/';
         } else {
-            // Si no, estamos en tu PC (localhost)
+            // URL para cuando trabajas en tu PC (XAMPP o Spark)
             $this->baseURL = 'http://localhost:8080/';
         }
     }
